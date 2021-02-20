@@ -4,17 +4,17 @@ ROS_version: 1.5.1
 # Empty defaults to latest non-experimental available
 k8s_version: "v1.18.15-rancher1-1"
 server:
-  cpus: 1
-  memory: 4000
+  cpus: 4
+  memory: 8192
 node:
   count: 1
-  cpus: 1
-  memory: 4000
+  cpus: 4
+  memory: 8192
 ip:
   master: 172.22.101.100
-  server: 172.22.101.101
-  node:   172.22.101.111
+  server: 192.168.1.185
+  node:   192.168.1.186
 linked_clones: true
 net:
   private_nic_type: 82545EM
-  network_type: private_network
+  network_type: public_network
