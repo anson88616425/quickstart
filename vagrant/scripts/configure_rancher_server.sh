@@ -7,6 +7,13 @@ k8s_version=$3
 curlimage="appropriate/curl"
 jqimage="stedolan/jq"
 
+mkdir -p /etc/docker
+tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://x19j23qq.mirror.aliyuncs.com"]
+}
+EOF
+
 for image in $curlimage $jqimage "rancher/rancher:${rancher_version}"; do
   until docker inspect $image > /dev/null 2>&1; do
     docker pull $image
